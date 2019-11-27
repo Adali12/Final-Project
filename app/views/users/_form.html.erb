@@ -1,0 +1,92 @@
+<nav class="navbar navbar-expand-lg navbar-light navibar1">
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item active">
+      <a class="nav-link" href="#"  >About As <span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item active">
+      <a class="nav-link" href="#">Contact As <span class="sr-only">(current)</span></a>
+    </li>
+  </ul>
+</div>
+</nav>
+<%= form_with(model: user, local: true) do |form| %>
+     <% if user.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+    
+          <ul>
+          <% user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <div class="field1">
+          <%= form.label :admin %>
+          <%= form.radio_button :admin, 'Admin' %>
+        </div>
+        <div class="field1">
+          <%= form.label :mentor %>
+          <%= form.radio_button :mentor, 'Mentor' %>
+        </div>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container register-form">
+            <div class="form">
+                <div class="note">
+                    <p>Free Mentorship Registration </p>
+                </div>
+
+                <div class="form-content">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                
+                                <%= form.text_field :firstName,class:"form-control", placeholder:"First Name " %>
+                            </div>
+                            <div class="form-group">
+                            <%= form.text_field :lastName,class:"form-control", placeholder:"Last Name " %>
+                        </div>
+                        <div class="form-group">
+                        <%= form.text_field :lastName,class:"form-control", placeholder:"Last Name " %>
+                    </div>
+                    <div class="form-group">
+                    <%= form.text_field :occupation,class:"form-control", placeholder:"Occupation " %>
+                </div>
+                <div class="form-group">
+                <%= form.text_field :expertise,class:"form-control", placeholder:"Expertise " %>
+              </div>
+                        </div>
+                        <div class="col-md-6">
+                        <div class="form-group">
+                        <%= form.text_field :email,class:"form-control", placeholder:"Email " %>
+                    </div>
+                    <div class="form-group">
+                    <%= form.text_field :address,class:"form-control", placeholder:"Address " %>
+                </div>
+                <div class="form-group">
+                <%= form.text_area :bio,class:"form-control", placeholder:"bio" %>
+            </div>
+                   <div class="form-group">
+                   <%= form.password_field :password, class:"form-control", placeholder:"Your Password "%>
+                            </div>
+                            <div class="form-group">
+                            <%= form.password_field :password_confirmation , class:"form-control", placeholder:"Confirm Password " %>
+                            </div>
+                        </div>
+                    </div>
+                    <%= form.submit  class:"btnSubmit" %>
+                    </button>
+                    <p>Do you have an account?<br><%= link_to "log in", new_session_path,class:"btn btn-primary btn-sm" %>
+                </div>
+            </div>
+        </div>
+        <% end %>

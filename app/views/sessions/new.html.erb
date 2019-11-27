@@ -1,0 +1,60 @@
+<nav class="navbar navbar-expand-lg navbar-light navibar1">
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item active">
+      <a class="nav-link" href="#"  >About As <span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item active">
+      <a class="nav-link" href="#">Contact As <span class="sr-only">(current)</span></a>
+    </li>
+  </ul>
+</div>
+</nav>
+<%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+  <div class="login-wrap">
+	<div class="login-html">
+	<label for="tab-1" class="tab">Free Mentorship</label><br>
+		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Log In</label>
+		<input id="tab-2" type="radio" name="tab" class="for-pwd"><label for="tab-2" class="tab">Forgot Password</label>
+		<div class="login-form">
+			<div class="sign-in-htm">
+				<div class="group">
+				<p id="notice"><%= notice %></p>
+					<label for="user" class="label">Username or Email</label>
+          <%= f.email_field :email,type:"text", class:"input",id:"inputEmail", placeholder:"Email Address" %>
+				</div>
+				<div class="group">
+					<label for="pass" class="label">Password</label>
+          <%= f.password_field :password,type:"password", class:"input",id:"inputPassword", placeholder:"Password" %>
+				</div>
+				<div class="group">
+		  <%= f.submit "Log in",type:"submit",class:"button",value:"Log In" %>
+		  <br>
+		  
+		  <p>Don't you have an account?<br/>
+		  <br>
+		  <%= link_to " New Register", new_user_path,class:"btn btn-primary btn-sm" %>
+				</div>
+				<div class="hr"></div>
+			</div>
+			<div class="for-pwd-htm">
+				<div class="group">
+					<label for="user" class="label">Username or Email</label>
+					<input id="user" type="text" class="input">
+				</div>
+				<div class="group">
+					<input type="submit" class="button" value="Reset Password">
+				</div>
+				<div class="hr"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<% end %>
