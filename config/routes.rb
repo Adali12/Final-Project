@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :profiles
   mount Notifications::Engine => "/notifications"
   resources :sessions, only: [:new, :create, :destroy]
   resources :users
