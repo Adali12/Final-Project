@@ -46,18 +46,13 @@
 </div>
 </nav>
 <p id="notice"><%= notice %></p>
-<div class="card" style="width: 25rem;margin-left: 30rem;" >
+<div class="card"  >
     <% @users.each do |user| %>
       <% if user.id != current_user.id %>
-      <div class="card-header"><%= link_to user.firstName%></div>
-      <div class="card-body" style="width: 25rem;">
-      <h6> First Name</h6><%= user.lastName %></div>
-      <div class="card-body" style="width: 25rem;"><h6> Last Name</h6><%= user.firstName %></div>
-      <div class="card-body" style="width: 25rem;"><h6> Email</h6> <%= user.email %></div>
-      <div class="card-body" style="width: 25rem;"><h6> Address</h6> <%= user.address %></div>
-      <div class="card-body" style="width: 25rem;"><h6> Occupation</h6> <%= user.occupation %></div>
-      <div class="card-body" style="width: 25rem;"><h6> Expertise</h6> <%= user.expertise %></div>
-      <div class="card-body" style="width: 25rem;"><h6> Bio</h6> <%= user.bio %></dit>
+      <div class="card-header ><%= link_to user.firstName%></div>
+      <div class="card-body">
+      <h6> Last Name</h6><%= user.lastName %></div>
+      <div class="card-body"><h6> Email</h6> <%= user.email %></div>
       </div>
       <div class="card-footer" >
        <%= link_to user.firstName, user,class:"btn btn-outline-info" %>
