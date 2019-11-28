@@ -13,6 +13,27 @@ class CommentsController < ApplicationController
       end
     end
   end
+  def destroy
+    @profile = Profile.find(params[:profile_id])
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+
+    respond_to do |format|
+        format.html { redirect_to @profile }
+        format.js
+    end
+end
+def update
+  respond_to do |format|
+    if @comment.update(params[:profile_id])
+      format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
+      format.json { render :show, status: :ok, location: @profile }
+    else
+      format.html { render :edit }
+      format.json { render json: @profile.errors, status: :unprocessable_entity }
+    end
+  end
+end
   private
   # Strong parameter
   def comment_params
