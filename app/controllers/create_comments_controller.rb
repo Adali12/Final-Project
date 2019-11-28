@@ -1,0 +1,3 @@
+class CreateCommentsController < ApplicationController
+
+end

@@ -10,6 +10,8 @@ class ProfilesController < ApplicationController
   # GET /profiles/1
   # GET /profiles/1.json
   def show
+    @comments = @profile.comments
+    @comment = @profile.comments.build
   end
 
   # GET /profiles/new

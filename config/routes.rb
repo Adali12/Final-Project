@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'comments/create'
   resources :profiles
   mount Notifications::Engine => "/notifications"
   resources :sessions, only: [:new, :create, :destroy]
@@ -15,5 +16,8 @@ Rails.application.routes.draw do
   root 'sessions#new'
   resources :conversations do
     resources :messages
+  end
+  resources :profiles do
+    resources :comments
   end
 end
