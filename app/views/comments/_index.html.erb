@@ -1,10 +1,10 @@
 <ul>
   <% comments.each do |comment| %>
     <% if comment.id.present? %>
-      <li>
+      <p>
         <p><%= comment.content %></p>
         <p><%= time_ago_in_words(comment.created_at)%></p>
-      </li>
+      </p>
       <%= link_to 'Delete', [comment.profile, comment],
       :method => :delete,
       data: { confirm: 'Are you sure?' }
