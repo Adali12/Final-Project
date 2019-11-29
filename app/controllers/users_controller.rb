@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   def index
+    @profiles= Profile.all
     @users = User.all
     User.find_each do |user|
       @users = User.all.where("mentor", "%#{params[:users]} %",true)
@@ -11,6 +12,7 @@ class UsersController < ApplicationController
   end
 end
   def show
+    @profiles= Profile.all
   end
   def new
     @user = User.new

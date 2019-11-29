@@ -20,4 +20,7 @@ Rails.application.routes.draw do
   resources :profiles do
     resources :comments
   end
+  namespace :mentor do
+    resources :profiles
+  end
 end

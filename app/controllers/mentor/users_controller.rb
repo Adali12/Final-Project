@@ -2,6 +2,7 @@ class Mentor::UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   def index
     @users = User.all
+    @profiles= Profile.all
   end
   def show
   end
